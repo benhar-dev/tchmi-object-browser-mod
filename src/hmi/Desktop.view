@@ -1,0 +1,155 @@
+<div id="Desktop" data-tchmi-type="TcHmi.Controls.System.TcHmiView" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-mode="Content" data-tchmi-min-width="100" data-tchmi-min-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-min-height="100" data-tchmi-min-height-unit="%">
+  <div id="ViewDesktopBeckhoffLogo" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-src="Images/Beckhoff_Logo.svg" data-tchmi-left="20" data-tchmi-top="20" data-tchmi-width="194" data-tchmi-height="57">
+
+  </div>
+<div id="TcHmiObjectBrowser" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiObjectBrowser" data-tchmi-height="193" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-top="87" data-tchmi-top-unit="px" data-tchmi-width="1114" data-tchmi-width-unit="px" data-tchmi-data-schema="%s%PLC1.MAIN.machine%/s%" data-tchmi-data-symbol="%s%PLC1.MAIN.machine%/s%" data-tchmi-indirect-write="true" data-tchmi-ignore-first-level="false">
+<script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
+[
+  {
+    "columnData": "Name",
+    "width": 320.0,
+    "widthUnit": "px",
+    "resize": true,
+    "minWidth": 160.0,
+    "minWidthUnit": "px",
+    "editable": false,
+    "sortable": true,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "ignoreEscapeSequences": false
+  },
+  {
+    "columnData": "Value",
+    "width": 240.0,
+    "widthUnit": "px",
+    "resize": true,
+    "minWidth": 160.0,
+    "minWidthUnit": "px",
+    "editable": true,
+    "sortable": true,
+    "horizontalAlignment": "Center",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "ignoreEscapeSequences": false
+  },
+  {
+    "columnData": "Datatype",
+    "width": 240.0,
+    "widthUnit": "px",
+    "resize": false,
+    "minWidth": 0.0,
+    "minWidthUnit": "px",
+    "editable": false,
+    "sortable": true,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "ignoreEscapeSequences": false
+  },
+  {
+    "columnData": "ValueDisplay",
+    "width": 240.0,
+    "widthUnit": "px",
+    "resize": false,
+    "minWidth": 0.0,
+    "minWidthUnit": "px",
+    "editable": false,
+    "sortable": true,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "format": {
+      "objectType": "Function",
+      "active": true,
+      "fn": "TcHmi.Functions.hmi.Formatter",
+      "fnParams": []
+    },
+    "ignoreEscapeSequences": false
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-cell-content-padding" type="application/json">
+{
+  "left": 3,
+  "leftUnit": "px",
+  "right": 3,
+  "rightUnit": "px",
+  "top": 0,
+  "topUnit": "px",
+  "bottom": 0,
+  "bottomUnit": "px"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-selected-row-value" type="application/json">
+
+</script>
+<script data-tchmi-target-attribute="data-tchmi-selected-cell-value" type="application/json">
+
+</script>
+
+
+
+
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiObjectBrowser.onAttached",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.hmi.CreatePrepareButton",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:project#/definitions/Symbol_Of_TcHmi.Controls.Beckhoff.TcHmiObjectBrowser",
+            "symbolExpression": "%ctrl%TcHmiObjectBrowser%/ctrl%"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:project#/definitions/Symbol_Of_TcHmi.Controls.Beckhoff.TcHmiButton",
+            "symbolExpression": "%ctrl%TcHmiButton%/ctrl%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-text="Button" data-tchmi-top="290" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton.onPressed",
+    "actions": [
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiObjectBrowser",
+        "fn": "writePreparedValues",
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(139, 26, 26, 1)"
+}
+</script>
+</div>
+</div>

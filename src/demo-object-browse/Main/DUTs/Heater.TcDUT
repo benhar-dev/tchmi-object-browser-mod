@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="Heater" Id="{33757206-8621-4a8d-b835-9a6a088a3b24}">
+    <Declaration><![CDATA[TYPE Heater :
+STRUCT
+	Setpoint : INT;
+	Alarm : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

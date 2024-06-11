@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="Machine" Id="{b99f180b-74fc-4073-b6c1-d26e13481d1a}">
+    <Declaration><![CDATA[TYPE Machine :
+STRUCT
+	Enabled : BOOL;
+	TopHeater : Heater;
+	BottomHeater : Heater;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
