@@ -12,6 +12,10 @@
                 const PREPARE_BACKGROUND_COLOR = { color: 'rgba(139, 26, 26, 1)' };
                 const DEFAULT_BACKGROUND_COLOR = null;
 
+                // Read the two controls in to their own variables
+                const objectBrowser = ObjectBrowser.read();
+                const button = Button.read();
+
                 // Initialize a global map to hold observers keyed by element ID
                 if (!window.myObservers) {
                     window.myObservers = {};
@@ -32,26 +36,21 @@
 
                     // Function to execute when mutations are observed
                     const callback = function (mutationsList, observer) {
-                        const hasClass = myDiv.querySelector('.TcHmi_Controls_Beckhoff_TcHmiTreeView-prepared-value') !== null;
+                        const hasPrepValues = !!objectBrowser.__treeView.__preparedValues.length;
 
                         // here we apply styles based on hasClass.
                         // add more here as needed.
-                        const button = Button.read();
-                        button.setBackgroundColor(hasClass ? PREPARE_BACKGROUND_COLOR : DEFAULT_BACKGROUND_COLOR);
+                        button.setBackgroundColor(hasPrepValues ? PREPARE_BACKGROUND_COLOR : DEFAULT_BACKGROUND_COLOR);
                     };
 
                     // Create a new observer instance linked to the callback function
                     window.myObservers[divId] = new MutationObserver(callback);
 
                     // Start observing the target node and its descendants for configured mutations
-                    window.myObservers[divId].observe(myDiv, {
-                        attributes: true,
-                        attributeFilter: ['class'],
-                        subtree: true
-                    });
+                    window.myObservers[divId].observe(myDiv, { attributes: true, childList: true, subtree: true });
                 }
 
-                const objectBrowswerId = ObjectBrowser.read().getId();
+                const objectBrowswerId = objectBrowser.getId();
                 setupObserver(objectBrowswerId);
 
             }
